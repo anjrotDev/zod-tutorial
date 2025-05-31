@@ -1,0 +1,41 @@
+###
+GET http://localhost:4000/user-profiles HTTP/1.1
+
+###
+POST http://localhost:4000/user-profiles HTTP/1.1
+Content-Type: application/json
+
+{
+  "userID": 2,
+  "userName": "Anjrot",
+  "age": "25",
+  "address": "123 Main St",
+  "city": "Anytown",
+  "country": "USA",
+  "phone": "1234567890",
+  "birthday": "1998-01-01",
+  "hoobies": "reading,traveling,cooking'",
+  "about": "I am a software engineer and I love to travel and cook.",
+  "theme": 456
+}
+
+###
+DELETE http://localhost:4000/users/4
+
+###
+# Create User Profile with File Upload | This command cannot be run as a HTTP request so run this in terminal
+curl -X POST http://localhost:4000/user-profiles \
+  -F "userID=4" \
+  -F "userName=John" \
+  -F "age=20" \
+  -F "address=123 Main St" \
+  -F "city=Anytown" \
+  -F "country=USA" \
+  -F "phone=1234567890" \
+  -F "birthday=1990-01-01" \
+  -F "hoobies[]=reading" \
+  -F "hoobies[]=traveling" \
+  -F "hoobies[]=cooking" \
+  -F "about=I am a software engineer and I love to travel and cook." \
+  -F "theme=light" \
+  -F "profilePicture=@/<the complete path to your img in your computer>/FreelancerGuy.png"

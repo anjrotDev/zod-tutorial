@@ -1,0 +1,16 @@
+{
+  "name": "zod-tutorial",
+  "version": "1.0.0",
+  "description": "Zod Tutorial",
+  "main": "index.js",
+  "scripts": {
+    "frontend:start": "cd zod-frontend && npm run dev",
+    "backend:start": "cd zod-backend && npm run dev",
+    "start": "concurrently npm:frontend:start npm:backend:start"
+  },
+  "author": "Anjrot Dev",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
