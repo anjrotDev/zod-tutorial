@@ -6,7 +6,7 @@ GET http://localhost:4000/users HTTP/1.1
 
 ###
 # Get User By id
-GET http://localhost:4000/users/2 HTTP/1.1
+GET http://localhost:4000/users/1 HTTP/1.1
 
 ###
 # Create user

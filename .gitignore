@@ -45,3 +45,5 @@ package-lock.json
 
 /zod_frontend/node_modules/
 /zod_backend/node_modules/
+zod-backend/src/config/database.sqlite
+zod-backend/src/public/*

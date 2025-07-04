@@ -1,32 +1,27 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { State, UserProfile, UserState } from "../types/types";
+import { State, UserState } from "../types/types";
 import { redirect } from "next/navigation";
 
-export const createUser = async (previousState: UserState, formData: FormData) => {
+export const createUser = async (previousState: Omit<UserState, "id">, formData: FormData) => {
   const body = {
     name: formData.get("name"),
     email: formData.get("email"),
     password: formData.get("password")
   };
-
   try {
-    const userCreate = await fetch("http://localhost:4000/users", {
+    await fetch("http://localhost:4000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(body)
     });
-    const result = await userCreate.json();
-    return result;
   } catch (error) {
     console.log("error :>> ", error);
-    return {
-      errorMessage: "Error creating user"
-    };
   }
+  redirect("/users");
 };
 
 export const deleteUser = async (formData: FormData) => {

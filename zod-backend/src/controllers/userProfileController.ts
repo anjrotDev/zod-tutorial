@@ -13,7 +13,7 @@ export const createUserProfile = async (req: Request, res: Response) => {
   try {
     const createProfile = await UserProfileModel.upsert(req.body);
     console.log("createProfile :>> ", createProfile);
-    res.status(400).json(createProfile);
+    res.status(200).json(createProfile);
   } catch (error: any) {
     console.log("error :>> ", error);
     if (error) {

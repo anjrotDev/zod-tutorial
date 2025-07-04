@@ -1,9 +1,7 @@
-import { PencilIcon, TrashIcon } from "@/app/components/icons";
+import { EyeIcon, EyeSlashIcon, PencilIcon, TrashIcon } from "@/app/components/icons";
 import { deleteUser } from "@/app/helpers/actions";
 import { fetchUsers } from "@/app/helpers/api";
-import { UserState } from "@/app/types/types";
 import Link from "next/link";
-import { FC } from "react";
 
 const UserList = async () => {
   const users = await fetchUsers();
@@ -29,6 +27,13 @@ const UserList = async () => {
                   <td className="py-3 px-4 text-slate-800">{user.email}</td>
                   <td className="py-3 px-4 text-right">
                     <div className="flex justify-end gap-2">
+                      <Link
+                        href={`/users/${user.id}/profile/view`}
+                        className="p-1.5 text-slate-600 hover:text-slate-900 rounded-md hover:bg-slate-100"
+                        aria-label="Editar usuario"
+                      >
+                        <EyeIcon className="w-5 h-5" />
+                      </Link>
                       <Link
                         href={`/users/${user.id}/profile/edit`}
                         className="p-1.5 text-slate-600 hover:text-slate-900 rounded-md hover:bg-slate-100"
